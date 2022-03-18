@@ -43,12 +43,6 @@ class AssetPickerConfig {
           'pageSize must be a multiple of gridCount.',
         ),
         assert(
-          specialPickerType != SpecialPickerType.wechatMoment ||
-              requestType == RequestType.common,
-          'SpecialPickerType.wechatMoment and requestType '
-          'cannot be set at the same time.',
-        ),
-        assert(
           (specialItemBuilder == null &&
                   identical(specialItemPosition, SpecialItemPosition.none)) ||
               (specialItemBuilder != null &&
