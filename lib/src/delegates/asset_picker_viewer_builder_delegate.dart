@@ -809,13 +809,6 @@ class DefaultAssetPickerViewerBuilderDelegate extends AssetPickerViewerBuilderDe
                 if (isWeChatMoment && hasVideo) {
                   return textDelegate.confirm;
                 }
-                if (provider!.isSelectedNotEmpty) {
-                  return '';
-                  return '${textDelegate.confirm}'
-                      ' (${provider.currentlySelectedAssets.length}'
-                      '/'
-                      '${selectorProvider!.maxAssets})';
-                }
                 return textDelegate.confirm;
               }(),
               style: TextStyle(
@@ -826,13 +819,6 @@ class DefaultAssetPickerViewerBuilderDelegate extends AssetPickerViewerBuilderDe
               semanticsLabel: () {
                 if (isWeChatMoment && hasVideo) {
                   return semanticsTextDelegate.confirm;
-                }
-                if (provider!.isSelectedNotEmpty) {
-                  return '';
-                  return '${semanticsTextDelegate.confirm}'
-                      ' (${provider.currentlySelectedAssets.length}'
-                      '/'
-                      '${selectorProvider!.maxAssets})';
                 }
                 return semanticsTextDelegate.confirm;
               }(),
