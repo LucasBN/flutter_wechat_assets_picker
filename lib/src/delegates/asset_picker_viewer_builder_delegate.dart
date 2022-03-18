@@ -810,6 +810,7 @@ class DefaultAssetPickerViewerBuilderDelegate extends AssetPickerViewerBuilderDe
                   return textDelegate.confirm;
                 }
                 if (provider!.isSelectedNotEmpty) {
+                  return '';
                   return '${textDelegate.confirm}'
                       ' (${provider.currentlySelectedAssets.length}'
                       '/'
