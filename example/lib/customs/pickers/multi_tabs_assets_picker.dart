@@ -34,14 +34,12 @@ class _MultiTabAssetPickerState extends State<MultiTabAssetPicker> {
       selectedAssets: entities,
       maxAssets: maxAssets,
     );
-    final DefaultAssetPickerProvider imagesProvider =
-        DefaultAssetPickerProvider(
+    final DefaultAssetPickerProvider imagesProvider = DefaultAssetPickerProvider(
       selectedAssets: entities,
       maxAssets: maxAssets,
       requestType: RequestType.image,
     );
-    final DefaultAssetPickerProvider videosProvider =
-        DefaultAssetPickerProvider(
+    final DefaultAssetPickerProvider videosProvider = DefaultAssetPickerProvider(
       selectedAssets: entities,
       maxAssets: maxAssets,
       requestType: RequestType.video,
@@ -110,9 +108,7 @@ class _MultiTabAssetPickerState extends State<MultiTabAssetPicker> {
                   ),
                   if (entities.isNotEmpty)
                     Icon(
-                      isDisplayingDetail
-                          ? Icons.arrow_downward
-                          : Icons.arrow_upward,
+                      isDisplayingDetail ? Icons.arrow_downward : Icons.arrow_upward,
                       size: 18.0,
                     ),
                 ],
@@ -325,9 +321,7 @@ class MultiTabAssetPickerBuilder extends DefaultAssetPickerBuilderDelegate {
                   if (p != null)
                     Flexible(
                       child: Text(
-                        isPermissionLimited && p.isAll
-                            ? textDelegate.accessiblePathName
-                            : p.name,
+                        isPermissionLimited && p.isAll ? textDelegate.accessiblePathName : p.name,
                         style: const TextStyle(
                           fontSize: 17,
                           fontWeight: FontWeight.normal,
@@ -407,21 +401,14 @@ class MultiTabAssetPickerBuilder extends DefaultAssetPickerBuilderDelegate {
             borderRadius: BorderRadius.circular(3),
           ),
           child: Text(
-            p.isSelectedNotEmpty && !isSingleAssetMode
-                ? '${textDelegate.confirm}'
-                    ' (${p.selectedAssets.length}/${p.maxAssets})'
-                : textDelegate.confirm,
+            textDelegate.confirm,
             style: TextStyle(
-              color: p.isSelectedNotEmpty
-                  ? theme.textTheme.bodyText1?.color
-                  : theme.textTheme.caption?.color,
+              color: p.isSelectedNotEmpty ? theme.textTheme.bodyText1?.color : theme.textTheme.caption?.color,
               fontSize: 17,
               fontWeight: FontWeight.normal,
             ),
           ),
-          onPressed: p.isSelectedNotEmpty
-              ? () => Navigator.of(context).maybePop(p.selectedAssets)
-              : null,
+          onPressed: p.isSelectedNotEmpty ? () => Navigator.of(context).maybePop(p.selectedAssets) : null,
           materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
         );
       },
@@ -461,9 +448,7 @@ class MultiTabAssetPickerBuilder extends DefaultAssetPickerBuilderDelegate {
         child: pathEntitySelector(context),
       ),
       leading: backButton(context),
-      actions: (isPreviewEnabled || !isSingleAssetMode)
-          ? <Widget>[confirmButton(context)]
-          : null,
+      actions: (isPreviewEnabled || !isSingleAssetMode) ? <Widget>[confirmButton(context)] : null,
       actionsPadding: const EdgeInsetsDirectional.only(end: 14),
       blurRadius: isAppleOS ? appleOSBlurRadius : 0,
       bottom: TabBar(
@@ -517,8 +502,7 @@ class MultiTabAssetPickerBuilder extends DefaultAssetPickerBuilderDelegate {
                       child: Column(
                         children: <Widget>[
                           Expanded(child: assetsGridBuilder(context)),
-                          if (!isSingleAssetMode && isPreviewEnabled)
-                            bottomActionBar(context),
+                          if (!isSingleAssetMode && isPreviewEnabled) bottomActionBar(context),
                         ],
                       ),
                     ),

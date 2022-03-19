@@ -1409,19 +1409,13 @@ class DefaultAssetPickerBuilderDelegate extends AssetPickerBuilderDelegate<Asset
             borderRadius: BorderRadius.circular(3),
           ),
           child: ScaleText(
-            p.isSelectedNotEmpty && !isSingleAssetMode
-                ? '${textDelegate.confirm}'
-                    ' (${p.selectedAssets.length}/${p.maxAssets})'
-                : textDelegate.confirm,
+            textDelegate.confirm,
             style: TextStyle(
               color: p.isSelectedNotEmpty ? theme.textTheme.bodyText1?.color : theme.textTheme.caption?.color,
               fontSize: 17,
               fontWeight: FontWeight.normal,
             ),
-            semanticsLabel: p.isSelectedNotEmpty && !isSingleAssetMode
-                ? '${semanticsTextDelegate.confirm}'
-                    ' (${p.selectedAssets.length}/${p.maxAssets})'
-                : semanticsTextDelegate.confirm,
+            semanticsLabel: semanticsTextDelegate.confirm,
           ),
           onPressed: p.isSelectedNotEmpty ? () => Navigator.of(context).maybePop(p.selectedAssets) : null,
           materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
